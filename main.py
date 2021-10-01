@@ -111,16 +111,29 @@ def markup_base2():
 
 def markupDate():
     b = time.asctime()
+    print(b)
+    # if int(b[7:11].replace(' ', '')) < 2:
+    #     c = f'0{b[9:11]}'
+    # else:
+    #     c = int(b[7:10])
+
     c = int(b[7:10])
+    print(c)
+
     k = b[4:7]
+
+
+
 
     values = service.spreadsheets().values().get(
         spreadsheetId=spreadsheets_id,
         range='A2:A32',
         majorDimension='COLUMNS').execute()  # вместо rows можно COLUMNS
-    # pprint(values['values'][0])
+    print(values['values'][0])
 
-    f = values['values'][0].index(str(c))
+    f = values['values'][0]
+
+    # f = values['values'][0].index(str(c))
     # print(f)
     # print(c)
 
@@ -133,7 +146,7 @@ def markupDate():
     if c <= 23:
         keyboard = [
             [
-                InlineKeyboardButton(f"{b} {month[k]}", callback_data=f'date{b}') for b in values['values'][0][c:c + 4]
+                InlineKeyboardButton(f"{b} {month[k]}", callback_data=f'date{b}') for b in f[c:c + 4]
             ],
             [
                 InlineKeyboardButton(f"{b} {month[k]}", callback_data=f'date{b}') for b in values['values'][0][c + 4:c + 8]
