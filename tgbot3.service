@@ -1,0 +1,14 @@
+[Unit]
+Description=Telegram Bot
+After=network.target
+
+[Service]
+User=leoshop
+Group=leoshop
+
+WorkingDirectory=/home/leoshop/tg/
+Environment="PYTHONPATH=/home/leoshop/tg/"
+ExecStart=/home/leoshop/tg/.venv/bin/python /home/leoshop/tg/main.py
+
+[Install]
+WantedBy=multi-user.target
