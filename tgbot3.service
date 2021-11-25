@@ -3,12 +3,12 @@ Description=Telegram Bot
 After=network.target
 
 [Service]
-User=leoshop
-Group=leoshop
+User=leo
+Group=leo
 
-WorkingDirectory=/home/leoshop/tg/
-Environment="PYTHONPATH=/home/leoshop/tg/"
-ExecStart=/home/leoshop/tg/.venv/bin/python /home/leoshop/tg/main.py
+WorkingDirectory=/home/leo/tg/
+Environment="PYTHONPATH=/home/leo/tg/"
+ExecStart=/home/leo/tg/.venv/bin/python /home/leo/tg/main.py
 
 [Install]
 WantedBy=multi-user.target
